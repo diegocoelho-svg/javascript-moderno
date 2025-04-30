@@ -1,32 +1,22 @@
-// O strict mode: ativando esse modo, os erros que eram silenciosos passa a gerar exceções no Javascript.
-"use strict"
+// destructuring assignment (desestruturação) permite extrair dados de arrays ou objetos em variáveis distintas.
 
-function showMessage() {
-  let personName = "Diego Coelho"
-  
-  console.log("Olá", personName)
-}
+const data = ["Diego Coelho", "diego@gmail.com"]
 
-showMessage()
+// desestruturando array
+const [username, email] = data
+console.log("Nome:", username)
+console.log("email:", email)
 
-class Student {
-  get point() {
-    return 7
-  }
-}
+const fruits = ["Qualquer Coisa", "Apple", "Orange"]
 
-let student = new Student()
-// Tentando mudar uma propridade somente leitura
-// student.point = 10 
-console.log(student.point)
+// Desestruturar somente o primeiro - Não necessariamente precisa estar com o mesmo nome
+const [banana] = fruits
+console.log(banana)
 
-// Tentando deletar uma propriedade de um objeto que não posso deletar.
-// delete window.document
+// Ignorando o primeiro na desestruturação
+const [_, apple] = fruits
+console.log(apple)
 
-// Quando passamos parametros duplicados, segundo valor sobrepoe sem o strictmode
-function sum(a, a, c) {
-  return a + a + c
-}
-
-const result = sum(1, 3, 2)
-console.log(result)
+// Ignorando o primeiro e o segundo na desestruturação.
+const [, , orange] = fruits
+console.log(orange)
