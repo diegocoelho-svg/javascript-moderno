@@ -1,7 +1,25 @@
-// Método some() testa se ao menos um dos elementos no array passa na condição e retorna um valor true ou false.
+/* Método reduce é utilizado para reduzir um array a um único valor.
+  Parâmetros: 
+  - Array original (values)
+  - Acumulador (accumulator)
+  - Valor da iteração (currentValue)
+  - Valor Inicial (0)
+  - Index (index da iteração atual - opcional)
+*/
 
-// Exemplo de array de idades.
-const ages = [15, 30, 39, 29]
+const values = [1, 2, 3, 4, 5]
 
-const result = ages.some((age) => age < 18)
-console.log(result)
+const sum = values.reduce((accumulator, currentValue, index) => {
+  console.log("ACUMULADOR: ", accumulator)
+  console.log("CURRENT VALUE: ", currentValue)
+  console.log("INDEX", index)
+
+  console.log("SOMA", accumulator + currentValue)
+  console.log("##################")
+
+  return accumulator + currentValue
+}, 0) // Acumulador inicial
+
+console.log("---------------------------")
+console.log("O valor final é:", sum)
+console.log("---------------------------")
