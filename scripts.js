@@ -1,23 +1,21 @@
-// spread (espalhar) permite que um objeto iterável, como uma expressão de array ou uma string seja expandido para ser usado onde zero ou mais argumentos.
+// O método map() chama a função callback recebida por parametro para cada elemento do Array original, em ordem, e constrói um novo array com base nos retornos de cada chamada. E no final, devolve o novo array.
 
-const numbers = [1, 2, 3]
-console.log(numbers)
+const products = ["Teclado", "Mouse", "Monitor"]
 
-// Spread
-console.log(...numbers)
+// Percorro os itens do Array
+products.map((item) => {
+  console.log(item)
+})
 
-const data = [
-  {
-    name: "Diego",
-    email: "diego@gmail.com",
-    avatar: "d.png"
-  },
-  {
-    name: "João",
-    email: "joao@gmail.com",
-    avatar: "j.png"
+// Sintaxe reduzida.
+products.map((product) => console.log(product))
+
+// Utilizando o novo objeto retornado.
+const formatted = products.map((product) => {
+  return {
+    id: Math.random(),
+    description: product,
   }
-]
+})
 
-console.log(data)
-console.log(...data)
+console.log(formatted)
