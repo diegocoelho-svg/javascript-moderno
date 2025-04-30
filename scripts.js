@@ -1,26 +1,11 @@
-// O método filter() cria um novo array com todos os elementos que passaram na condição.
+// Método findIndex() retorna o indice no array do primeiro elemento que satisfazer a condição. Caso contrário, retorna -1, indicando que nenhum elemento passou no teste.
 
-const words =  ["Javascript", "HTML", "CSS", "Web"]
+const values = [4, 6, 8 , 12]
 
-// Filtrando palavras que tenham mais do que 3 letras
-const result = words.filter((word) => word.length > 3)
-console.log(result)
+// Obtendo o primeiro índice do elemento que o valor é maior do que 4.
+const index = values.findIndex((value) => value > 4)
+console.log(index)
+console.log(values[index]) // O número que está no index
 
-const products = [
-  { description: "Teclado", price: 150, promotion: true },
-  { description: "Monitor", price: 1100, promotion: true },
-  { description: "Mouse", price: 50, promotion: false },
-]
-
-// Exemplo, produtos em promoção:
-const promotion = products.filter((product) => product.promotion === true)
-console.log(promotion)
-
-const promotion2 = products.filter((product) => {
-  if(product.promotion === false) { // Se esse produto não está em promoção, então quero ele no novo array.
-    return true
-  }
-  return false
-})
-
-console.log(promotion2)
+// Exemplo de quando não encontra - Retorna -1
+console.log(values.findIndex((value) => value > 12)) 
