@@ -1,11 +1,16 @@
-// Método findIndex() retorna o indice no array do primeiro elemento que satisfazer a condição. Caso contrário, retorna -1, indicando que nenhum elemento passou no teste.
+// Método find() retorna o valor do primeiro elemento do array que satisfaz a condição. Caso o contrário, undefined é retornado
 
-const values = [4, 6, 8 , 12]
+const values = [5 ,12, 8, 130, 44]
 
-// Obtendo o primeiro índice do elemento que o valor é maior do que 4.
-const index = values.findIndex((value) => value > 4)
-console.log(index)
-console.log(values[index]) // O número que está no index
+const found = values.find((value) => value > 10)
+console.log(found)
 
-// Exemplo de quando não encontra - Retorna -1
-console.log(values.findIndex((value) => value > 12)) 
+const products = [
+  { name: "Fone", price: 100 },
+  { name: "Mouse", price: 60 },
+  { name: "Monitor", price: 1100 },
+  { name: "Teclado", price: 150 },
+]
+
+const productCaro = products.find((product) => product.price > 500)
+console.log(productCaro)
