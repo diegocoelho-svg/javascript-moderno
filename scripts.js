@@ -1,5 +1,5 @@
 const book = {
-  title: "Objetos Imutáveis",
+  title: "Objetos imutáveis",
   category: "javascript",
   author: {
     name: "Rodrigo",
@@ -7,13 +7,29 @@ const book = {
   }
 }
 
-// O javascript em si não impõe restrições à modificação dos objetos
-// book.category = "HTML"
+function deepFreeze(object) {
+  // Obtém um array com todas as propriedades do objeto.
+  const props = Reflect.ownKeys(object)
+  
+  // Itera sobre todas as propriedades do objeto.
+  for(const prop of props) { 
+    // Obtém o valor associado à propriedade atual.
+    const value = object[prop]
+    
+    // Verifica se o valor é um objeto ou função para continuar aplicando o deepFreeze em objetos aninhados.
+    if(value && typeof value === "object" || typeof value === "function") {
+      deepFreeze(value)
+    }
+  }
 
-// Congela o objeto e impede a modificação
-Object.freeze(book)
-book.category = "CSS" // Não modifica
+  // Retorna objeto congelado
+  return Object.freeze(object)
+}
 
-// O object.freeze() não impede modificações profundas em objetos aninhados (shallow freezing).
-book.author.name = "João"
+// Chama a função para congelar o objeto com Deep Freeze (congelamento profundo)
+deepFreeze(book)
+
+book.category = "HTML"
+book.author.name = "JOÃO"
+
 console.log(book)
