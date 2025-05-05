@@ -1,4 +1,4 @@
-export { sum as sumTwoNumbers, multiply as multiplyTwoNumbers}
+export { sum, multiply}
 
 function sum(a, b) {
   return a + b
