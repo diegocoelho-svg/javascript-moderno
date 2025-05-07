@@ -13,16 +13,26 @@ function asyncFunction() {
     }, 3000) // Simula uma operação que leva 3 segundos
   })
 }
-// Visualizando que o retorno é uma promise.
-// console.log(asyncFunction())
 
-console.log("Executando função assíncrona...")
+async function fetch() {
+  try {
+    const response = await asyncFunction()
+    console.log("Sucesso:", response)
+  } catch (error) {
+    console.log("Erro:", error) // Pega o bloco do reject
+  } finally {
+    console.log("Fim da Execução!")
+  }
+}
 
-// Quando a Promise for resolvida, execute ESTA função (Função dentro de função = Callback Function) com o resultado.
-asyncFunction().then((response) => {
-  console.log("Sucesso:", response)
-}).catch((error) => {
-  console.log("Error:", error)
-}).finally(() => {
-  console.log("Fim da execução")
-}) 
+async function fetch() {
+  const response = await asyncFunction()
+  console.log(response)
+}
+
+const fetch = async () => {
+  const response = await asyncFunction()
+  console.log(response)
+}
+
+fetch()
