@@ -1,2 +1,12 @@
-const now = dayjs()
-console.log(now.format("DD/MM - HH:mm")) // Olhar a documentação
+class User {
+  constructor({email}) {
+    this.email = email
+  }
+
+  sendMessage() {
+    console.log("Mensagem enviada para:", this.email)
+  }
+} 
+
+let user = new User({ email: "rodrigo@email.com" })
+user.sendMessage()
